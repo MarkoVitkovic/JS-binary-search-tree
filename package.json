@@ -1,0 +1,21 @@
+{
+  "name": "binary-tree-search",
+  "version": "1.0.0",
+  "description": "implementation of binary search tree in JavaScript",
+  "main": "binary_search_tree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "binary",
+    "search",
+    "tree",
+    "javascript",
+    "node",
+    "root",
+    "left",
+    "right"
+  ],
+  "author": "Marko Vitkovic",
+  "license": "ISC"
+}
