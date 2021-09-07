@@ -68,4 +68,36 @@ class BinarySearchTree{
             }
         }
     }
+
+    //metoda koja poziva ukloniNode sa dobivenim podatcima
+    ukloni(data){
+        //root je reinicijaliziran s rootom od modificiranog stabla
+        this.root = this.ukloniNode(this.root, data)
+    }
+
+    //metoda uklanja data, rekurzivno ide kroz stablo dok ne nade datu i ukloni ga
+    ukloniNode(node, key){
+        //ako je root null stablo je prazno 
+        if(node === null){
+            return null;
+        }
+        //ako je data koji se brise manji od roota, prebaci ga u lijevo podstablo
+        else if(key < node.data){
+            node.left = this.ukloniNode(node.left, key);
+            return node;
+        }
+        //ako je data koji se brise veci od roota, prebaci ga u desno podstablo
+        else if(key > node.data){
+            node.right = this.ukloniNode(node.right, key);
+            return node;
+        }
+        //ako je data jednaka rootu onda obrisi ovaj node
+        else{
+            //brisanje node bez djece
+            if(node.left === null && node.right === null){
+                node = null;
+                return node;
+            }
+        }
+    }
 }
