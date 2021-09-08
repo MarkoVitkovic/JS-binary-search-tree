@@ -24,7 +24,7 @@ class BinarySearchTree{
     //getRootNode()
     //inorder(node)
     //preorder(node)              
-    //postorder(node)
+    //postorder(node) 
     //search(node, data)
 
 
@@ -98,6 +98,69 @@ class BinarySearchTree{
                 node = null;
                 return node;
             }
+        }
+    }
+
+    //obavlja inorder prolazak kroz stablo
+    inorder(node){
+        if(node !== null){
+            this.inorder(node.left);
+            console.log(node.data);
+            this.inorder(node.right);
+        }
+    }
+
+    //obavlja preorder obilazak stabla
+    preorder(node){
+        if(node !== null){
+            console.log(node.data);
+            this.preorder(node.left);
+            this.preorder(node.right);
+        }
+    }
+
+    //obavlja postorder obilazak stabla
+    postorder(node){
+        if(node !== null){
+            this.postorder(node.left);
+            this.postorder(node.right);
+            console.log(node.data);
+        }
+    }
+
+    //funkcija trazi najmanji node u stablu, trazi od dobivenog cvora
+    nadiNajmanjiNode(node){
+        //ako je lijevi node null, onda mora biti najmanji
+        if(node.left === null){
+            return node
+        }
+        else{
+            return this.nadiNajmanjiNode(node.left);
+        }
+    }
+
+    //funkcija vraca korjen stabla
+    nadiKorjenStabla(){
+        return this.root;
+    }
+
+    //pretrazuje node s dobivenim podatcima
+    search(node, data){
+        //ako je drvo prazno vrati null
+        if(node === null){
+            return null;
+        }
+        //ako je data manji od node.data pomakni lijevo
+        else if(data < node.data){
+            return this.search(node.left, data);
+        }
+        //ako je data veci od node.data pomakni desno
+        else if(data > node.data){
+            return this.search(node.right, data);
+        }
+        //ako je jednak, vrati node
+        else{
+            return node;
         }
     }
 }
