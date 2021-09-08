@@ -163,4 +163,86 @@ class BinarySearchTree{
             return node;
         }
     }
+
 }
+//kreira se objekt za binarno stablo
+var bts = new BinarySearchTree();
+
+//dodavanje elemenata
+bts.dodaj(15);
+bts.dodaj(25);
+bts.dodaj(10);
+bts.dodaj(7);
+bts.dodaj(22);
+bts.dodaj(17);
+bts.dodaj(13);
+bts.dodaj(5);
+bts.dodaj(9);
+bts.dodaj(27);
+
+//          15
+//         /  \
+//        10   25
+//       / \   / \
+//      7  13 22  27
+//     / \    /
+//    5   9  17
+
+console.log(bts);
+
+var root = bts.nadiKorjenStabla();
+
+// prints 5 7 9 10 13 15 17 22 25 27
+bts.inorder(root);
+             
+// uklanjanje node bez djece
+bts.ukloni(5);
+
+//          15
+//         /  \
+//        10   25
+//       / \   / \
+//      7  13 22  27
+//       \    /
+//        9  17
+
+var root = bts.nadiKorjenStabla();
+             
+// prints 7 9 10 13 15 17 22 25 27
+bts.inorder(root);
+
+// uklanjanje node s jednim djetetom
+bts.ukloni(7);
+             
+//          15
+//         /  \
+//        10   25
+//       / \   / \
+//      9  13 22  27
+//            /
+//           17
+
+var root = bts.nadiKorjenStabla();
+ 
+// prints 9 10 13 15 17 22 25 27
+bts.inorder(root);
+
+// uklanjanje nodea s dvoje djece
+bts.ukloni(15);
+     
+//          17
+//         /  \
+//        10   25
+//       / \   / \
+//      9  13 22  27
+ 
+var root = bts.nadiKorjenStabla();
+console.log("inorder poredak");
+ 
+// prints 9 10 13 17 22 25 27
+bts.inorder(root);
+             
+console.log("postorder poredak");
+bts.postorder(root);
+console.log("preorder poredak");
+bts.preorder(root);
