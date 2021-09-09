@@ -98,6 +98,22 @@ class BinarySearchTree{
                 node = null;
                 return node;
             }
+            //brisanje node sa jednim djetetom
+            if(node.left === null){
+                node = node.right;
+                return node;
+            }
+            else if(node.right === null){
+                node = node.left;
+                return node;
+            }
+
+            //brisanje nodea s dvoje djece, minimalni node od desnog podstabla je spremljen u aux
+            var aux = this.nadiNajmanjiNode(node.right);
+            node.data = aux.data;
+
+            node.right = this.ukloniNode(node.right, aux.data)
+            return node;
         }
     }
 
